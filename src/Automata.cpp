@@ -107,5 +107,54 @@ bool Automata::check(int option) {
                 return true;
             } else {
                 std::cout << "Недостаточно денег для этого напитка." << std::endl;
-                return false
+                return false;
+            }
+        } else {
+            std::cout << "Неверный выбор." << std::endl;
+            return false;
+        }
+    } else {
+        std::cout << "Проверка невозможна в данный момент." << std::endl;
+        return false;
+    }
+}
+
+void Automata::cancel() {
+    if (state == ACCEPT || state == CHECK) {
+        state = WAIT;
+        getState();
+        std::cout << "Заказ отменен." << std::endl;
+    } else {
+        error("Отмена заказа невозможна в данный момент.");
+    }
+}
+
+void Automata::cook(int option) {
+    if (state == CHECK) {
+        state = COOK;
+        getState();
+        std::cout << "Приготовление напитка: " << menu[option].name << std::endl;
+        std::cout << "Пожалуйста, подождите..." << std::endl;
+    } else {
+        error("Приготовление напитка невозможно в данный момент.");
+    }
+}
+
+void Automata::finish() {
+    if (state == COOK) {
+        state = WAIT;
+        getState();
+        std::cout << "Обслуживание завершено." << std::endl;
+    } else {
+        error("Завершение обслуживания невозможно в данный момент.");
+    }
+}
+
+void Automata::error(const std::string& message) {
+    std::cerr << "Ошибка: " << message << std::endl;
+}
+
+void Automata::getBalance() const {
+    std::cout << "Остаток на счету: " << cash << " р." << std::endl;
+}
 
