@@ -64,7 +64,7 @@ void Automata::getMenu() {
     }
 }
 
-STATES Automata::getState() {
+STATES Automata::getState() { // Изменено: теперь возвращает STATES
     switch (state) {
         case OFF:
             std::cout << "OFF" << std::endl;
@@ -81,8 +81,6 @@ STATES Automata::getState() {
         case COOK:
             std::cout << "COOK" << std::endl;
             return COOK;
-        default:
-            return OFF; // или другое значение по умолчанию
     }
 }
 
@@ -168,7 +166,6 @@ void Automata::error(const std::string& message) {
     std::cerr << "Ошибка: " << message << std::endl;
 }
 
-int Automata::getBalance() const {
-    std::cout << "Остаток на счету: " << cash << " р." << std::endl;
+int Automata::getBalance() const { // Изменено: теперь возвращает int
     return cash;
 }
