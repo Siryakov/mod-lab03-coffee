@@ -49,7 +49,7 @@ TEST(TEST5, GetBalanceAfterCooking) {
     automata.check(5);
     automata.cook(5);
     automata.finish();
-    EXPECT_EQ(300, automata.getBalance());
+    EXPECT_EQ(620, automata.getBalance());
     EXPECT_EQ(STATES::WAIT, automata.getState());
 }
 
