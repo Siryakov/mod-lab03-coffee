@@ -96,7 +96,8 @@ bool Automata::choice(int option) {
                 std::cout << "Остаток на счету: " << cash << " р." << std::endl;
                 return true;
             } else {
-                std::cout << "Недостаточно денег для этого напитка." << std::endl;
+                std::cout << "Недостаточно денег для этого напитка."
+                    << std::endl;
                 return false;
             }
         } else {
@@ -143,7 +144,8 @@ void Automata::cook(int option) {
     if (state == CHECK) {
         state = COOK;
         getState();
-        std::cout << "Приготовление напитка: " << menu[option].name << std::endl;
+        std::cout << "Приготовление напитка: "
+            << menu[option].name << std::endl;
         std::cout << "Пожалуйста, подождите..." << std::endl;
     } else {
         error("Приготовление напитка невозможно в данный момент.");
