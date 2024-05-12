@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include "Automata.h"
 enum STATES {
     OFF,
     WAIT,
