@@ -64,23 +64,25 @@ void Automata::getMenu() {
     }
 }
 
-void Automata::getState() {
+STATES Automata::getState() {
     switch (state) {
         case OFF:
             std::cout << "OFF" << std::endl;
-            break;
+            return OFF;
         case WAIT:
             std::cout << "WAIT" << std::endl;
-            break;
+            return WAIT;
         case ACCEPT:
             std::cout << "ACCEPT" << std::endl;
-            break;
+            return ACCEPT;
         case CHECK:
             std::cout << "CHECK" << std::endl;
-            break;
+            return CHECK;
         case COOK:
             std::cout << "COOK" << std::endl;
-            break;
+            return COOK;
+        default:
+            return OFF; // или другое значение по умолчанию
     }
 }
 
@@ -166,6 +168,7 @@ void Automata::error(const std::string& message) {
     std::cerr << "Ошибка: " << message << std::endl;
 }
 
-void Automata::getBalance() const {
+int Automata::getBalance() const {
     std::cout << "Остаток на счету: " << cash << " р." << std::endl;
+    return cash;
 }
