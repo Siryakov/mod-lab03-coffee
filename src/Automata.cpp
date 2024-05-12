@@ -3,7 +3,8 @@
 Automata::Automata() {
     cash = 0;
     state = OFF;
-    menu = { {"Вода", 50}, {"Капучино", 100}, {"Чай", 80}, {"Латте", 150}, {"Мокачино", 200}, {"Горячий шоколад", 180} };
+    menu = { {"Вода", 50}, {"Капучино", 100}, {"Чай", 80}, 
+        {"Латте", 150}, {"Мокачино", 200}, {"Горячий шоколад", 180} };
 }
 
 void Automata::on() {
@@ -40,7 +41,6 @@ void Automata::coin(int amount) {
     }
 }
 
-
 void Automata::getMenu() {
     if (menu.empty()) {
         std::cerr << "Ошибка: Меню пусто." << std::endl;
@@ -56,19 +56,19 @@ void Automata::getMenu() {
 void Automata::getState() {
     switch (state) {
     case OFF:
-        cout << "OFF" << endl;
+        std::cout << "OFF" << std::endl;
         break;
     case WAIT:
-        cout << "WAIT" << endl;
+        std::cout << "WAIT" << std::endl;
         break;
     case ACCEPT:
-        cout << "ACCEPT" << endl;
+        std::cout << "ACCEPT" << std::endl;
         break;
     case CHECK:
-        cout << "CHECK" << endl;
+        std::cout << "CHECK" << std::endl;
         break;
     case COOK:
-        cout << "COOK" << endl;
+        std::cout << "COOK" << std::endl;
         break;
     }
 }
@@ -101,27 +101,27 @@ bool Automata::choice(int option) {
     }
 }
 
-
 bool Automata::check(int option) {
     if (state == CHECK) {
         if (option >= 0 && option < menu.size()) {
             if (cash >= menu[option].price) {
                 return true;
-            } else {
+            }
+            else {
                 std::cout << "Недостаточно денег для этого напитка." << std::endl;
                 return false;
             }
-        } else {
+        }
+        else {
             std::cout << "Неверный выбор." << std::endl;
             return false;
         }
-    } else {
+    }
+    else {
         std::cout << "Проверка наличия средств невозможна в текущем состоянии." << std::endl;
         return false;
     }
 }
-
-
 
 void Automata::cancel() {
     if (state == ACCEPT || state == CHECK) {
@@ -155,6 +155,7 @@ void Automata::finish() {
         error("неудалось завершить обслуживание");
     }
 }
+
 void Automata::error(const std::string& message) {
     std::cerr << "Ошибка: " << message << std::endl;
 }
