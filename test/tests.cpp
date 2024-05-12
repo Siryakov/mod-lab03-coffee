@@ -26,7 +26,7 @@ TEST(TEST3, ChooseDrink) {
     automata.coin(250);
     automata.coin(300);
     automata.choice(3);
-    EXPECT_EQ(STATES::ACCEPT, automata.getState());
+    EXPECT_EQ(STATES::ACCEPT, automata.getState()); 
 }
 
 // Тест проверки состояния после проверки и приготовления напитка
@@ -48,7 +48,7 @@ TEST(TEST5, GetBalanceAfterCooking) {
     automata.choice(5);
     automata.check(5);
     automata.cook(5);
-    EXPECT_EQ(300, automata.getBalance());
+    EXPECT_EQ(300, automata.getBalance()); 
 }
 
 // Тест проверки отмены заказа
@@ -58,7 +58,7 @@ TEST(TEST6, CancelOrder) {
     automata.coin(800);
     automata.choice(5);
     automata.cancel();
-    EXPECT_EQ(STATES::WAIT, automata.getState());
+    EXPECT_EQ(STATES::WAIT, automata.getState()); 
 }
 
 // Тест проверки приготовления напитка
@@ -90,7 +90,7 @@ TEST(TEST9, CancelWithoutPayment) {
     Automata automata;
     automata.on();
     automata.cancel();
-    EXPECT_EQ(STATES::WAIT, automata.getState());
+    EXPECT_EQ(STATES::WAIT, automata.getState()); 
 }
 
 // Тест проверки выбора напитка без предварительного внесения денег
@@ -98,6 +98,5 @@ TEST(TEST10, ChooseDrinkWithoutPayment) {
     Automata automata;
     automata.on();
     automata.choice(3);
-    EXPECT_EQ(0, automata.getBalance());
+    EXPECT_EQ(0, automata.getBalance());   
 }
-
