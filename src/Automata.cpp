@@ -5,11 +5,11 @@ Automata::Automata() {
     cash = 0;
     state = OFF;
     menu = { {"Вода", 50},
-        {"Капучино", 100},
-        {"Чай", 80},
-        {"Латте", 150},
-        {"Мокачино", 200},
-        {"Горячий шоколад", 180} };
+             {"Капучино", 100},
+             {"Чай", 80},
+             {"Латте", 150},
+             {"Мокачино", 200},
+             {"Горячий шоколад", 180} };
 }
 
 void Automata::on() {
@@ -37,11 +37,11 @@ void Automata::coin(int amount) {
         cash += amount;
         state = ACCEPT;
         getState();
-        std::cout <<"Добавлено "<< amount
-            << " р. Всего: "
-            << cash
-            << " р."
-            << std::endl;
+        std::cout << "Добавлено " << amount
+                  << " р. Всего: "
+                  << cash
+                  << " р."
+                  << std::endl;
     } else {
         error("Нельзя добавить монеты в данный момент.");
     }
@@ -93,7 +93,7 @@ bool Automata::choice(int option) {
                 cash -= menu[option].price;
                 cook(option);
                 finish();
-                std::cout << "Остаток на счету: " << cash << " р."<< std::endl;
+                std::cout << "Остаток на счету: " << cash << " р." << std::endl;
                 return true;
             } else {
                 std::cout << "Недостаточно денег для этого напитка." << std::endl;
@@ -115,7 +115,7 @@ bool Automata::check(int option) {
             if (cash >= menu[option].price) {
                 return true;
             } else {
-                std::cout << "Недостаточно денег для этого напитка." 
+                std::cout << "Недостаточно денег для этого напитка."
                     << std::endl;
                 return false;
             }
