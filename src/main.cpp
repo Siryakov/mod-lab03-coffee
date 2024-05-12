@@ -1,4 +1,4 @@
-// Copyright 2024 osenvesen
+// Copyright 2024 siryakov
 #include <iostream>
 #include "Automata.h"
 
