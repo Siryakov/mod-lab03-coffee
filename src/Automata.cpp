@@ -64,23 +64,20 @@ void Automata::getMenu() {
     }
 }
 
-STATES Automata::getState() { // Изменено: теперь возвращает STATES
+STATES Automata::getState() {
     switch (state) {
         case OFF:
-            std::cout << "OFF" << std::endl;
             return OFF;
         case WAIT:
-            std::cout << "WAIT" << std::endl;
             return WAIT;
         case ACCEPT:
-            std::cout << "ACCEPT" << std::endl;
             return ACCEPT;
         case CHECK:
-            std::cout << "CHECK" << std::endl;
             return CHECK;
         case COOK:
-            std::cout << "COOK" << std::endl;
             return COOK;
+        default:
+            return WAIT; 
     }
 }
 
