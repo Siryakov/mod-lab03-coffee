@@ -51,8 +51,29 @@ TEST(TEST5, GetBalanceAfterCooking) {
     EXPECT_EQ(300, automata.getBalance());
 }
 
-// Тест проверки выключения автомата
-TEST(TEST6, TurnOff) {
+// Тест проверки отмены заказа
+TEST(TEST6, CancelOrder) {
+    Automata automata;
+    automata.on();
+    automata.coin(800);
+    automata.choice(5);
+    automata.cancel();
+    EXPECT_EQ(States::WAIT, automata.getState());
+}
+
+// Тест проверки приготовления напитка
+TEST(TEST7, CookDrink) {
+    Automata automata;
+    automata.on();
+    automata.coin(800);
+    automata.choice(5);
+    automata.check();
+    automata.cook();
+    EXPECT_EQ(States::WAIT, automata.getState());
+}
+
+// Тест проверки выключения автомата после завершения обслуживания
+TEST(TEST8, TurnOffAfterService) {
     Automata automata;
     automata.on();
     automata.coin(800);
@@ -62,4 +83,20 @@ TEST(TEST6, TurnOff) {
     automata.finish();
     automata.off();
     EXPECT_EQ(States::OFF, automata.getState());
+}
+
+// Тест проверки отмены заказа без предварительного внесения денег
+TEST(TEST9, CancelWithoutPayment) {
+    Automata automata;
+    automata.on();
+    automata.cancel();
+    EXPECT_EQ(States::WAIT, automata.getState());
+}
+
+// Тест проверки выбора напитка без предварительного внесения денег
+TEST(TEST10, ChooseDrinkWithoutPayment) {
+    Automata automata;
+    automata.on();
+    automata.choice(3);
+    EXPECT_EQ(0, automata.getBalance());
 }
