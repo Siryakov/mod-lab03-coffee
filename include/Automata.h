@@ -36,16 +36,14 @@ class Automata {
     void off(); //выключение автомата;
     void coin(int amount); //занесение денег на счёт пользователем;
     void getMenu(); //считывание меню с напитками и ценами для пользователя;
-    void getState(); //считывание текущего состояния для пользователя;
+    STATES getState(); //считывание текущего состояния для пользователя;
     bool choice(int option); //выбор напитка пользователем;
     bool check(int option); //проверка наличия необходимой суммы;
     void cancel(); //отмена сеанса обслуживания пользователем;
     void cook(int option); //имитация процесса приготовления напитка;
     void finish(); //завершение обслуживания пользователя.
     void error(const std::string& message);
-    void getBalance() const;
+    int getBalance() const; // Возвращает остаток на счету
 };
 
 #endif  // INCLUDE_AUTOMATA_H_
-
-
