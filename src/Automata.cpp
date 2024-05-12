@@ -67,19 +67,19 @@ void Automata::getMenu() {
 void Automata::getState() {
     switch (state) {
         case OFF:
-            cout << "OFF" << endl;
+            std::cout << "OFF" << std::endl;
             break;
         case WAIT:
-            cout << "WAIT" << endl;
+            std::cout << "WAIT" << std::endl;
             break;
         case ACCEPT:
-            cout << "ACCEPT" << endl;
+            std::cout << "ACCEPT" << std::endl;
             break;
         case CHECK:
-            cout << "CHECK" << endl;
+            std::cout << "CHECK" << std::endl;
             break;
         case COOK:
-            cout << "COOK" << endl;
+            std::cout << "COOK" << std::endl;
             break;
     }
 }
@@ -166,4 +166,3 @@ void Automata::error(const std::string& message) {
 void Automata::getBalance() const {
     std::cout << "Остаток на счету: " << cash << " р." << std::endl;
 }
-
