@@ -11,15 +11,15 @@ int main() {
     coffeeMachine.on();
 
     // Добавление монет
-    coffeeMachine.coin(50); 
-    coffeeMachine.coin(100); 
-    coffeeMachine.coin(200); 
+    coffeeMachine.coin(50);
+    coffeeMachine.coin(100);
+    coffeeMachine.coin(200);
 
     // Получение и отображение полного меню
     coffeeMachine.getMenu();
 
     // Выбор напитка
-    coffeeMachine.choice(2); 
+    coffeeMachine.choice(2);
 
     // Получение остатка на счету
     coffeeMachine.getBalance();
