@@ -17,7 +17,8 @@ void Automata::on() {
         state = WAIT;
         getState();
         std::cout << "Автомат включен." << std::endl;
-    } else {
+    }
+    else {
         error("Автомат уже включен.");
     }
 }
@@ -27,22 +28,24 @@ void Automata::off() {
         state = OFF;
         getState();
         std::cout << "Автомат выключен." << std::endl;
-    } else {
+    }
+    else {
         error("Автомат уже выключен.");
     }
 }
 
 void Automata::coin(int amount) {
-    if (state == WAIT || state == ACCEPT) {
+    if (state != OFF) {
         cash += amount;
         state = ACCEPT;
         getState();
         std::cout << "Добавлено " << amount
-                  << " р. Всего: "
-                  << cash
-                  << " р."
-                  << std::endl;
-    } else {
+            << " р. Всего: "
+            << cash
+            << " р."
+            << std::endl;
+    }
+    else {
         error("Нельзя добавить монеты в данный момент.");
     }
 }
@@ -66,18 +69,18 @@ void Automata::getMenu() {
 
 STATES Automata::getState() {
     switch (state) {
-        case OFF:
-            return OFF;
-        case WAIT:
-            return WAIT;
-        case ACCEPT:
-            return ACCEPT;
-        case CHECK:
-            return CHECK;
-        case COOK:
-            return COOK;
-        default:
-            return WAIT; 
+    case OFF:
+        return OFF;
+    case WAIT:
+        return WAIT;
+    case ACCEPT:
+        return ACCEPT;
+    case CHECK:
+        return CHECK;
+    case COOK:
+        return COOK;
+    default:
+        return WAIT;
     }
 }
 
@@ -92,16 +95,19 @@ bool Automata::choice(int option) {
                 finish();
                 std::cout << "Остаток на счету: " << cash << " р." << std::endl;
                 return true;
-            } else {
+            }
+            else {
                 std::cout << "Недостаточно денег для этого напитка."
                     << std::endl;
                 return false;
             }
-        } else {
+        }
+        else {
             std::cout << "Неверный выбор." << std::endl;
             return false;
         }
-    } else {
+    }
+    else {
         std::cout << "Выбор напитка невозможен в данный момент." << std::endl;
         return false;
     }
@@ -112,27 +118,31 @@ bool Automata::check(int option) {
         if (option >= 0 && option < menu.size()) {
             if (cash >= menu[option].price) {
                 return true;
-            } else {
+            }
+            else {
                 std::cout << "Недостаточно денег для этого напитка."
                     << std::endl;
                 return false;
             }
-        } else {
+        }
+        else {
             std::cout << "Неверный выбор." << std::endl;
             return false;
         }
-    } else {
+    }
+    else {
         std::cout << "Проверка невозможна в данный момент." << std::endl;
         return false;
     }
 }
 
 void Automata::cancel() {
-    if (state == ACCEPT || state == CHECK) {
+    if (state != OFF) {
         state = WAIT;
         getState();
         std::cout << "Заказ отменен." << std::endl;
-    } else {
+    }
+    else {
         error("Отмена заказа невозможна в данный момент.");
     }
 }
@@ -144,7 +154,8 @@ void Automata::cook(int option) {
         std::cout << "Приготовление напитка: "
             << menu[option].name << std::endl;
         std::cout << "Пожалуйста, подождите..." << std::endl;
-    } else {
+    }
+    else {
         error("Приготовление напитка невозможно в данный момент.");
     }
 }
@@ -154,7 +165,8 @@ void Automata::finish() {
         state = WAIT;
         getState();
         std::cout << "Обслуживание завершено." << std::endl;
-    } else {
+    }
+    else {
         error("Завершение обслуживания невозможно в данный момент.");
     }
 }
