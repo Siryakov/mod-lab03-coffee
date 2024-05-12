@@ -1,43 +1,34 @@
 // Copyright 2024 osenvesen
 #include <iostream>
-#include <string>
-#include <vector>
+#include "Automata.h"
 
-enum STATES {
-    OFF,
-    WAIT,
-    ACCEPT,
-    CHECK,
-    COOK,
-    FINISH
-};
+int main() {
+    setlocale(LC_ALL, "Russian");
 
-struct Drink {
-    std::string name;
-    int price;
+    Automata coffeeMachine;
 
-    Drink(const std::string& _name, int _price) : name(_name), price(_price) {}
-};
+    // Включение автомата
+    coffeeMachine.on();
 
-class Automata {
-private:
-    int cash;
-    std::vector<Drink> menu;
-    STATES state;
+    // Добавление монет
+    coffeeMachine.coin(50); 
+    coffeeMachine.coin(100); 
+    coffeeMachine.coin(200); 
 
-public:
-    Automata();
-    void on(); //включение автомата;
-    void off(); //выключение автомата;
-    void coin(int amount); //занесение денег на счёт пользователем;
-    void getMenu(); //считывание меню с напитками и ценами для пользователя;
-    void getState(); //считывание текущего состояния для пользователя;
-    bool choice(int option); //выбор напитка пользователем;
-    bool check(int option); //проверка наличия необходимой суммы;
-    void cancel(); //отмена сеанса обслуживания пользователем;
-    void cook(int option); //имитация процесса приготовления напитка;
-    void finish(); //завершение обслуживания пользователя.
-    void error(const std::string& message);
+    // Получение и отображение полного меню
+    coffeeMachine.getMenu();
 
-    void getBalance() const;
-};
+    // Выбор напитка
+    coffeeMachine.choice(2); 
+
+    // Получение остатка на счету
+    coffeeMachine.getBalance();
+
+    // Отмена заказа
+    coffeeMachine.cancel();
+
+    // Выключение автомата
+    coffeeMachine.off();
+
+    return 0;
+}
