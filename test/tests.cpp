@@ -26,7 +26,7 @@ TEST(TEST3, ChooseDrink) {
     automata.coin(250);
     automata.coin(300);
     automata.choice(3);
-    EXPECT_EQ(STATES::ACCEPT, automata.getState());
+    EXPECT_EQ(STATES::ACCEPT, automata.getState()); 
 }
 
 // Тест проверки состояния после проверки и приготовления напитка
@@ -37,7 +37,8 @@ TEST(TEST4, CheckAndCook) {
     automata.coin(300);
     automata.choice(3);
     automata.check(3);
-    EXPECT_EQ(STATES::COOK, automata.getState());
+    automata.cook(3);
+    EXPECT_EQ(STATES::COOK, automata.getState()); 
 }
 
 // Тест проверки остатка на счету после приготовления напитка
@@ -48,6 +49,7 @@ TEST(TEST5, GetBalanceAfterCooking) {
     automata.choice(5);
     automata.check(5);
     automata.cook(5);
+    automata.finish(); 
     EXPECT_EQ(300, automata.getBalance());
 }
 
