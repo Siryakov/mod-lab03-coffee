@@ -1,3 +1,4 @@
+// Copyright 2024 osenvesen
 #include <iostream>
 #include <string>
 #include <vector>
