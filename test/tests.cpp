@@ -48,7 +48,7 @@ TEST(TEST5, GetBalanceAfterCooking) {
     automata.choice(5);
     automata.check(5);
     automata.cook(5);
-    EXPECT_EQ(300, automata.getBalance()); 
+    EXPECT_EQ(300, automata.getBalance());
 }
 
 // Тест проверки отмены заказа
@@ -98,5 +98,5 @@ TEST(TEST10, ChooseDrinkWithoutPayment) {
     Automata automata;
     automata.on();
     automata.choice(3);
-    EXPECT_EQ(0, automata.getBalance()); 
+    EXPECT_EQ(0, automata.getBalance());
 }
