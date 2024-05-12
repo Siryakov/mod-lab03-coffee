@@ -1,8 +1,11 @@
-// Copyright 2024 osenvesen
+// Copyright 2024 Siryakov
+
+#ifndef INCLUDE_AUTOMATA_H_
+#define INCLUDE_AUTOMATA_H_
+
 #include <iostream>
 #include <string>
 #include <vector>
-using namespace std;
 
 enum STATES {
     OFF,
@@ -23,7 +26,7 @@ struct Drink {
 class Automata {
 private:
     int cash;
-    std::vector<Drink> menu ;
+    std::vector<Drink> menu;
     std::vector<int> prices;
     STATES state;
 
@@ -39,9 +42,10 @@ public:
     void cancel(); //отмена сеанса обслуживания пользователем;
     void cook(int option); //имитация процесса приготовления напитка;
     void finish(); //завершение обслуживания пользователя.
-    void error(const std::string& message); 
-
+    void error(const std::string& message);
     void getBalance() const;
 };
+
+#endif  // INCLUDE_AUTOMATA_H_
 
 
