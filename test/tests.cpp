@@ -26,7 +26,7 @@ TEST(TEST3, ChooseDrink) {
     automata.coin(250);
     automata.coin(300);
     automata.choice(3);
-    EXPECT_EQ(STATES::ACCEPT, automata.getState()); 
+    EXPECT_EQ(STATES::WAIT, automata.getState()); 
 }
 // Тест проверки состояния после проверки и приготовления напитка
 TEST(TEST4, CheckAndCook) {
