@@ -1,4 +1,3 @@
-// Copyright 2024 Siryakov
 #include "Automata.h"
 
 Automata::Automata() {
@@ -17,8 +16,7 @@ void Automata::on() {
         state = WAIT;
         getState();
         std::cout << "Автомат включен." << std::endl;
-    }
-    else {
+    } else {
         error("Автомат уже включен.");
     }
 }
@@ -28,8 +26,7 @@ void Automata::off() {
         state = OFF;
         getState();
         std::cout << "Автомат выключен." << std::endl;
-    }
-    else {
+    } else {
         error("Автомат уже выключен.");
     }
 }
@@ -44,8 +41,7 @@ void Automata::coin(int amount) {
             << cash
             << " р."
             << std::endl;
-    }
-    else {
+    } else {
         error("Нельзя добавить монеты в данный момент.");
     }
 }
